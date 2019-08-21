@@ -1,24 +1,13 @@
-<html>
-    <head>
-        <title>Blog</title>
-    </head>
-<body>
-    <div>
-        <h1><a href = "/">WEEEEEE</a></h1>
-    </div>
+{% extends "blog/base.html" %}
 
-    <div>
-        <p>published: august</p>
-        <h2><a href = "">First post</a></h2>
-        <p>swan swan</p>
-    </div>
-
-    <div>
-        <p>published: august</p>
-        <h2><a href = "">Second post</a></h2>
-        <p>ska ska</p>
-    </div>
-
-</body>
-
-</html>
+{% block content %}
+            {% for index in posts %}
+                <div class="post">
+                    <div class = "date">
+                        <p>published: {{index.published_date}}</p>
+                    </div>
+                    <h2><a href="">{{index.title}}</a></h2>
+                    <p>{{index.text|linebreaksbr}}</p>
+                </div>
+            {% endfor %}
+{% endblock %}
