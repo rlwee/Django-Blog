@@ -50,3 +50,5 @@ h1, h2, h3, h4 {
 .post h2 a, .post h2 a:visited, .post p {
     color: #f7f0c6;
 }
+
+.errors {color: red; }

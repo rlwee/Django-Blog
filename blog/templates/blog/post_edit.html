@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+        <h2>New Verse</h2>
+        <form method="POST" class="post-form" novalidate>{% csrf_token %}
+
+            <div class="errors">
+                {% for key, value in form.errors.items %}    
+                <p>{{ key }} - {{value}}</p>
+                {% endfor %}
+            </div>
+
+
+
+            {% for field in form %}
+                <p>{{ field.label}} {{ field }}</p>
+                <span class="errors">{{ field.errors }}</span>
+            {% endfor %}
+            
+            <button type="submit" class="save btn btn-default">Add</button>
+        </form>
+
+{% endblock %}

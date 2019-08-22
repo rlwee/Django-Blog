@@ -1,12 +1,13 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
+            Total blog {{ posts.count }}
             {% for index in posts %}
                 <div class="post">
                     <div class = "date">
                         <p>published: {{index.published_date}}</p>
                     </div>
-                    <h2><a href="">{{index.title}}</a></h2>
+                    <h2><a href="{% url 'post_detail' pk=index.pk %}">{{index.title}}</a></h2>
                     <p>{{index.text|linebreaksbr}}</p>
                 </div>
             {% endfor %}
